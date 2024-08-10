@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +29,17 @@ Route::group(['prefix' => "admin", 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::resource('/users', 'UserController');
     Route::resource('/roles', 'RoleController');
     Route::resource('/permissions', 'PermissionController')->except(['show']);
+
+
+    Route::resource('asignacion_de_metros', 'AsigancionDeMetrosController')->names([
+        'create' => 'asignacion_de_metros.nueva',
+        'store' => 'asignacion_de_metros.guardar',
+        'edit' => 'asignacion_de_metros.editar',
+        'update' => 'asignacion_de_metros.actualizar',
+        'destroy' => 'asignacion_de_metros.eliminar',
+        'index' => 'asignacion_de_metros.listar',
+        'show' => 'asignacion_de_metros.ver'
+    ]);
+    // Route::resource('asignacion_de_metros', 'AsigancionDeMetrosController'::class);
+
 });

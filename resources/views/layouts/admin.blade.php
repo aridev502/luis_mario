@@ -7,7 +7,7 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex,nofollow">
-    <title>Laravel 8 | Roles and Permissions Manager</title>
+    <title>{{ config('app.name') }}</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/monster-admin-lite/" />
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
@@ -22,12 +22,12 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-        <style>
-            .btn{
-                margin: 2.5px;
-            }
-        </style>
-        @yield('styles')
+    <style>
+        .btn {
+            margin: 2.5px;
+        }
+    </style>
+    @yield('styles')
 </head>
 
 <body>
@@ -60,7 +60,8 @@
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
 
-                                <img src="{{ asset('logos/logo-dark.png') }}" class="dark-logo" width="158px" alt="Laravel Roles & Permissions Manager">
+                            <img src="{{ asset('logos/logo-dark.png') }}" class="dark-logo" width="158px"
+                                alt="Laravel Roles & Permissions Manager">
 
 
                         </b>
@@ -105,16 +106,17 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                    {{-- <img src="{{ asset('admin_assets/images/users/1.jpg') }}" alt="user" class="profile-pic mr-2"> --}}
-                                    {{ Auth()->user()->name }}
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href=""
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{-- <img src="{{ asset('admin_assets/images/users/1.jpg') }}" alt="user" class="profile-pic mr-2"> --}}
+                                {{ Auth()->user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                               <a href="javascript:void(0)" onclick="$('#logout-form').submit();" class="dropdown-item">
+                                <a href="javascript:void(0)" onclick="$('#logout-form').submit();"
+                                    class="dropdown-item">
                                     <i class="fa fa-sign-out-alt mr-3"></i>
                                     Logout
-                               </a>
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -133,29 +135,29 @@
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
-            <div class="container-fluid" >
+            <div class="container-fluid">
 
-                @if(Session::has('status-success'))
+                @if (Session::has('status-success'))
                     <div class="alert alert-success">
-                        {{Session::get('status-success')}}
+                        {{ Session::get('status-success') }}
                     </div>
                 @endif
 
-                @if(Session::has('status-info'))
+                @if (Session::has('status-info'))
                     <div class="alert alert-info">
-                        {{Session::get('status-info')}}
+                        {{ Session::get('status-info') }}
                     </div>
                 @endif
 
-                @if(Session::has('status-warning'))
+                @if (Session::has('status-warning'))
                     <div class="alert alert-warning">
-                        {{Session::get('status-warning')}}
+                        {{ Session::get('status-warning') }}
                     </div>
                 @endif
 
-                @if(Session::has('status-danger'))
+                @if (Session::has('status-danger'))
                     <div class="alert alert-danger">
-                        {{Session::get('status-danger')}}
+                        {{ Session::get('status-danger') }}
                     </div>
                 @endif
 
