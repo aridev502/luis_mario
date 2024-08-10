@@ -18,12 +18,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'role_id',
-    ];
+
+    public $guarded = ['password_confirmation'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -51,21 +47,22 @@ class User extends Authenticatable
         }
     }
 
-    public function role(){
+    public function role()
+    {
         return $this->belongsTo(Role::class);
     }
 
 
-    static function boot(){
+    static function boot()
+    {
         parent::boot();
 
-        static::created(function(Model $model){
-            if($model->role_id == ""){
+        static::created(function (Model $model) {
+            if ($model->role_id == "") {
                 $model->update([
-                    'role_id' => Role::where('title','user')->first()->id,
+                    'role_id' => Role::where('title', 'user')->first()->id,
                 ]);
             }
         });
-
     }
 }

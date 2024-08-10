@@ -26,8 +26,7 @@ class UserController extends Controller
         abort_if(Gate::denies('users_access'), Response::HTTP_FORBIDDEN, 'Forbidden');
 
         $users = User::with('role')->paginate(5)->appends($request->query());
-        return view('admin.users.index',compact('users'));
-
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -39,8 +38,8 @@ class UserController extends Controller
     {
         abort_if(Gate::denies('user_create'), Response::HTTP_FORBIDDEN, 'Forbidden');
 
-        $roles = Role::pluck('title','id');
-        return view('admin.users.create',compact('roles'));
+        $roles = Role::pluck('title', 'id');
+        return view('admin.users.create', compact('roles'));
     }
 
     /**
@@ -49,9 +48,24 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserRequest $request)
+    public function store(Request $request)
     {
-        User::create($request->validated());
+        $codigo = date('Ymdhis');
+        $request->merge(['codigo' => $codigo]);
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'dpi' => ['required', 'string', 'max:255', 'unique:users'],
+            'direccion' => ['required', 'string', 'max:255'],
+            'ciudad' => ['required', 'string', 'max:255'],
+            'telefono' => ['required', 'string', 'max:255'],
+            'codigo' => ['required', 'string', 'max:255', 'unique:users'],
+        ]);
+
+        $user = User::create($request->all());
+
+        dd($user);
         return redirect()->route('admin.users.index')->with(['status-success' => "New User Created"]);
     }
 
@@ -66,7 +80,7 @@ class UserController extends Controller
     {
         abort_if(Gate::denies('user_show'), Response::HTTP_FORBIDDEN, 'Forbidden');
 
-        return view('admin.users.show',compact('user'));
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -79,8 +93,8 @@ class UserController extends Controller
     {
         abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, 'Forbidden');
 
-        $roles = Role::pluck('title','id');
-        return view('admin.users.edit',compact('user','roles'));
+        $roles = Role::pluck('title', 'id');
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
 
