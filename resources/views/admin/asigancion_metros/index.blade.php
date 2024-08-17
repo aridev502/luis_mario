@@ -31,7 +31,7 @@
                                             <td>{{ $asignacion->id }}</td>
                                             <td>{{ $asignacion->minimo }}</td>
                                             <td>{{ $asignacion->maximo }}</td>
-                                            <td>{{ $asignacion->precio }}</td>
+                                            <td>Q. {{ number_format($asignacion->precio, 2) }}</td>
                                             <td>
                                                 <a href="{{ route('admin.asignacion_de_metros.ver', $asignacion->id) }}"
                                                     class="btn btn-info">Ver</a>

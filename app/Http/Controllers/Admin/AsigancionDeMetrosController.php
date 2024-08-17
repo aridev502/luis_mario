@@ -46,8 +46,10 @@ class AsigancionDeMetrosController extends Controller
     }
 
     // Actualizar una asignación existente
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+
+        $id = $request->id;
         $request->validate([
             'minimo' => 'required|numeric',
             'maximo' => 'required|numeric',
@@ -62,6 +64,12 @@ class AsigancionDeMetrosController extends Controller
         ]);
 
         return response()->json($asignacion);
+    }
+
+    function edit($id)
+    {
+        $asignacion = AsigancionDeMetros::findOrFail($id);
+        return view('admin.asigancion_metros.edit', compact('asignacion'));
     }
 
     // Eliminar una asignación

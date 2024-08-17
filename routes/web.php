@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DuenoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,15 @@ Route::group(['prefix' => "admin", 'as' => 'admin.', 'namespace' => 'App\Http\Co
         'index' => 'asignacion_de_metros.listar',
         'show' => 'asignacion_de_metros.ver'
     ]);
+
+    Route::get('/duenos', [DuenoController::class, 'index'])->name('duenos.index');
+    Route::get('/duenos/create', [DuenoController::class, 'create'])->name('duenos.create');
+    Route::post('/duenos', [DuenoController::class, 'store'])->name('duenos.store');
+    Route::get('/duenos/{dueno}', [DuenoController::class, 'show'])->name('duenos.show');
+    Route::get('/duenos/{dueno}/edit', [DuenoController::class, 'edit'])->name('duenos.edit');
+    Route::put('/duenos/{dueno}', [DuenoController::class, 'update'])->name('duenos.update');
+    Route::delete('/duenos/{dueno}', [DuenoController::class, 'destroy'])->name('duenos.destroy');
+
     // Route::resource('asignacion_de_metros', 'AsigancionDeMetrosController'::class);
 
 });
