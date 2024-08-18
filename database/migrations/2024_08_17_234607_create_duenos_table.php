@@ -21,8 +21,8 @@ class CreateDuenosTable extends Migration
             $table->string('dpi');
             $table->string('ubicacion');
             $table->string('tipo');
-            $table->string('aux1')->nullable();
-            $table->string('aux2')->nullable();
+            $table->double('asignado')->nullable();
+            $table->double('abonado')->nullable();
             $table->string('aux3')->nullable();
             $table->timestamps();
         });

@@ -16,8 +16,8 @@ class Dueno extends Model
         'dpi',
         'ubicacion',
         'tipo',
-        'aux1',
-        'aux2',
+        'asignado',
+        'abonado',
         'aux3',
     ];
 }

@@ -37,17 +37,9 @@
                 <input type="text" name="tipo" id="tipo" class="form-control" required>
             </div>
 
-            <div class="form-group">
-                <label for="aux1">Aux 1:</label>
-                <input type="text" name="aux1" id="aux1" class="form-control">
-            </div>
 
-            <div class="form-group">
-                <label for="aux2">Aux 2:</label>
-                <input type="text" name="aux2" id="aux2" class="form-control">
-            </div>
 
-            <div class="form-group">
+            <div class="form-group d-none">
                 <label for="aux3">Aux 3:</label>
                 <input type="text" name="aux3" id="aux3" class="form-control">
             </div>

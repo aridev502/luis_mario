@@ -28,8 +28,8 @@ class DuenoController extends Controller
             'dpi' => 'required|string|max:20',
             'ubicacion' => 'required|string|max:255',
             'tipo' => 'required|string|max:50',
-            'aux1' => 'nullable|string|max:255',
-            'aux2' => 'nullable|string|max:255',
+            'asignado' => 'nullable|string|max:255',
+            'abonado' => 'nullable|string|max:255',
             'aux3' => 'nullable|string|max:255',
         ]);
 
@@ -57,8 +57,8 @@ class DuenoController extends Controller
             'dpi' => 'required|string|max:20',
             'ubicacion' => 'required|string|max:255',
             'tipo' => 'required|string|max:50',
-            'aux1' => 'nullable|string|max:255',
-            'aux2' => 'nullable|string|max:255',
+            'asignado' => 'nullable|string|max:255',
+            'abonado' => 'nullable|string|max:255',
             'aux3' => 'nullable|string|max:255',
         ]);
 
