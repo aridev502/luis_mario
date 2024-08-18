@@ -110,7 +110,7 @@
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif"
-                                href="{{ route('admin.home') }}" aria-expanded="false">
+                                href="{{ route('admin.consumos.index') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Asignar Consumos</span>
                             </a>

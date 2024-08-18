@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ConsumoController;
 use App\Http\Controllers\Admin\DuenoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -49,6 +50,15 @@ Route::group(['prefix' => "admin", 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/duenos/{dueno}/edit', [DuenoController::class, 'edit'])->name('duenos.edit');
     Route::put('/duenos/{dueno}', [DuenoController::class, 'update'])->name('duenos.update');
     Route::delete('/duenos/{dueno}', [DuenoController::class, 'destroy'])->name('duenos.destroy');
+
+
+    Route::get('/consumos', [ConsumoController::class, 'index'])->name('consumos.index'); // Mostrar lista de consumos
+    Route::get('/consumos/create', [ConsumoController::class, 'create'])->name('consumos.create'); // Formulario de creación de consumo
+    Route::post('/consumos', [ConsumoController::class, 'store'])->name('consumos.store'); // Guardar nuevo consumo
+    Route::get('/consumos/{consumo}', [ConsumoController::class, 'show'])->name('consumos.show'); // Mostrar detalles de un consumo
+    Route::get('/consumos/{consumo}/edit', [ConsumoController::class, 'edit'])->name('consumos.edit'); // Formulario de edición de consumo
+    Route::put('/consumos/{consumo}', [ConsumoController::class, 'update'])->name('consumos.update'); // Actualizar un consumo
+    Route::delete('/consumos/{consumo}', [ConsumoController::class, 'destroy'])->name('consumos.destroy'); // Eliminar un consumo
 
     // Route::resource('asignacion_de_metros', 'AsigancionDeMetrosController'::class);
 
