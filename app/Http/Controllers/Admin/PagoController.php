@@ -75,4 +75,9 @@ class PagoController extends Controller
         $pago->delete();
         return redirect()->route('pagos.index');
     }
+
+    function pagoenlinea()
+    {
+        return view('web.pagoenlinea');
+    }
 }
