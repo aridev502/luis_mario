@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ConsumoController;
 use App\Http\Controllers\Admin\DuenoController;
+use App\Http\Controllers\Admin\PagoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,7 @@ Route::group(['prefix' => "admin", 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::get('/duenos/create', [DuenoController::class, 'create'])->name('duenos.create');
     Route::post('/duenos', [DuenoController::class, 'store'])->name('duenos.store');
     Route::get('/duenos/{dueno}', [DuenoController::class, 'show'])->name('duenos.show');
+    Route::get('/duenos-deudores', [DuenoController::class, 'deudores'])->name('duenos.deudores');
     Route::get('/duenos/{dueno}/edit', [DuenoController::class, 'edit'])->name('duenos.edit');
     Route::put('/duenos/{dueno}', [DuenoController::class, 'update'])->name('duenos.update');
     Route::delete('/duenos/{dueno}', [DuenoController::class, 'destroy'])->name('duenos.destroy');
@@ -62,4 +64,21 @@ Route::group(['prefix' => "admin", 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     // Route::resource('asignacion_de_metros', 'AsigancionDeMetrosController'::class);
 
+
+    Route::prefix('pagos')->name('pagos.')->group(function () {
+        // Mostrar una lista de pagos
+        Route::get('/', [PagoController::class, 'index'])->name('index');
+        // Mostrar el formulario para crear un nuevo pago
+        Route::get('create', [PagoController::class, 'create'])->name('create');
+        // Almacenar un nuevo pago
+        Route::post('/', [PagoController::class, 'store'])->name('store');
+        // Mostrar un pago específico
+        Route::get('{pago}', [PagoController::class, 'show'])->name('show');
+        // Mostrar el formulario para editar un pago específico
+        Route::get('{pago}/edit', [PagoController::class, 'edit'])->name('edit');
+        // Actualizar un pago específico
+        Route::put('{pago}', [PagoController::class, 'update'])->name('update');
+        // Eliminar un pago específico
+        Route::delete('{pago}', [PagoController::class, 'destroy'])->name('destroy');
+    });
 });

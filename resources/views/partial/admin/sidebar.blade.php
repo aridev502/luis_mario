@@ -8,116 +8,102 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
-                        <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span
-                                class="hide-menu">Dashboard</span></li>
+                        <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i> <span class="hide-menu">Dashboard</span></li>
 
                         @can('admin_panel_access')
-                            <!-- dashboard-->
-                            <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif"
-                                    href="{{ route('admin.home') }}" aria-expanded="false">
-                                    <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
-                                    <span class="hide-menu">Dashboard</span>
-                                </a>
-                            </li>
+                        <!-- dashboard-->
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.home') }}" aria-expanded="false">
+                                <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
                         @endcan
 
 
                         @canany(['users_access', 'roles_access', 'permissions_access'])
-                            <li class="sidebar-item">
+                        <li class="sidebar-item">
 
-                                <a class="sidebar-link has-arrow waves-effect waves-dark selected" href="javascript:void(0)"
-                                    aria-expanded="false">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark selected" href="javascript:void(0)" aria-expanded="false">
 
-                                    <i class="mr-3 mdi mdi-account" aria-hidden="true"></i>
-                                    <span class="hide-menu">Users Management</span>
-                                </a>
-                                <ul aria-expanded="false"
-                                    class="collapse first-level
+                                <i class="mr-3 mdi mdi-account" aria-hidden="true"></i>
+                                <span class="hide-menu">Users Management</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level
                                 @if (request()->is('admin/users') || request()->is('admin/users/*')) in @endif
                                 @if (request()->is('admin/roles') || request()->is('admin/roles/*')) in @endif
                                 @if (request()->is('admin/permissions') || request()->is('admin/permissions/*')) in @endif
                             ">
-                                    @can('users_access')
-                                        <li class="sidebar-item">
-                                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif"
-                                                href="{{ route('admin.users.index') }}" aria-expanded="false">
-                                                <i class="mr-3 mdi mdi-account-multiple" aria-hidden="true"></i>
-                                                <span class="hide-menu">Users</span>
-                                            </a>
-                                        </li>
-                                    @endcan
+                                @can('users_access')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin/users') || request()->is('admin/users/*')) is_active @endif" href="{{ route('admin.users.index') }}" aria-expanded="false">
+                                        <i class="mr-3 mdi mdi-account-multiple" aria-hidden="true"></i>
+                                        <span class="hide-menu">Users</span>
+                                    </a>
+                                </li>
+                                @endcan
 
-                                    @can('roles_access')
-                                        <li class="sidebar-item">
-                                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin/roles') || request()->is('admin/roles/*')) is_active @endif"
-                                                href="{{ route('admin.roles.index') }}" aria-expanded="false">
-                                                <i class="mr-3 mdi mdi-star" aria-hidden="false"></i>
-                                                <span class="hide-menu">Roles</span>
-                                            </a>
-                                        </li>
-                                    @endcan
+                                @can('roles_access')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin/roles') || request()->is('admin/roles/*')) is_active @endif" href="{{ route('admin.roles.index') }}" aria-expanded="false">
+                                        <i class="mr-3 mdi mdi-star" aria-hidden="false"></i>
+                                        <span class="hide-menu">Roles</span>
+                                    </a>
+                                </li>
+                                @endcan
 
-                                    @can('permissions_access')
-                                        <li class="sidebar-item">
-                                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin/permissions') || request()->is('admin/permissions/*')) is_active @endif"
-                                                href="{{ route('admin.permissions.index') }}" aria-expanded="false">
-                                                <i class="mr-3 mdi mdi-key" aria-hidden="false"></i>
-                                                <span class="hide-menu">Permissions</span>
-                                            </a>
-                                        </li>
-                                    @endcan
-                                </ul>
-                            </li>
+                                @can('permissions_access')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin/permissions') || request()->is('admin/permissions/*')) is_active @endif" href="{{ route('admin.permissions.index') }}" aria-expanded="false">
+                                        <i class="mr-3 mdi mdi-key" aria-hidden="false"></i>
+                                        <span class="hide-menu">Permissions</span>
+                                    </a>
+                                </li>
+                                @endcan
+                            </ul>
+                        </li>
                         @endcanany
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin.duenos')) is_active @endif"
-                                href="{{ route('admin.duenos.index') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin.duenos')) is_active @endif" href="{{ route('admin.duenos.index') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Casa / Duenos</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif"
-                                href="{{ route('admin.asignacion_de_metros.listar') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.asignacion_de_metros.listar') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Asigancion de Precios</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif"
-                                href="{{ route('admin.home') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.home') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Pagos en Linea</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif"
-                                href="{{ route('admin.home') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.pagos.create') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Pagos</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif"
-                                href="{{ route('admin.home') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.home') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Reportes</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif"
-                                href="{{ route('admin.consumos.index') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.consumos.index') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Asignar Consumos</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif"
-                                href="{{ route('admin.home') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.duenos.deudores') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Deudores</span>
                             </a>

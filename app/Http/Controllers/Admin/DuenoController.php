@@ -73,4 +73,10 @@ class DuenoController extends Controller
 
         return redirect()->route('admin.duenos.index')->with('success', 'Dueño eliminado con éxito.');
     }
+
+    function deudores()
+    {
+        $duenos = Dueno::where('asignado', '>', 0)->get();
+        return view('admin.duenos.index', compact('duenos'));
+    }
 }
