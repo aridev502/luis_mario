@@ -72,38 +72,38 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.asignacion_de_metros.listar') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin.asignacion_de_metros')) is_active @endif" href="{{ route('admin.asignacion_de_metros.listar') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Asigancion de Precios</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.home') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin.pagos')) is_active @endif" href="{{ route('admin.pagos.pagosEnLinea') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Pagos en Linea</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.pagos.create') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin.pagos')) is_active @endif" href="{{ route('admin.pagos.create') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Pagos</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.home') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin.reportes')) is_active @endif" href="{{ route('admin.home') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Reportes</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.consumos.index') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin.consumos')) is_active @endif" href="{{ route('admin.consumos.index') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Asignar Consumos</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin')) is_active @endif" href="{{ route('admin.duenos.deudores') }}" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark  @if (request()->is('admin.deudores')) is_active @endif" href="{{ route('admin.duenos.deudores') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Deudores</span>
                             </a>

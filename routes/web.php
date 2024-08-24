@@ -67,18 +67,30 @@ Route::group(['prefix' => "admin", 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     Route::prefix('pagos')->name('pagos.')->group(function () {
         // Mostrar una lista de pagos
-        Route::get('/', [PagoController::class, 'index'])->name('index');
+        Route::get('/index', [PagoController::class, 'index'])->name('index');
         // Mostrar el formulario para crear un nuevo pago
         Route::get('create', [PagoController::class, 'create'])->name('create');
         // Almacenar un nuevo pago
-        Route::post('/', [PagoController::class, 'store'])->name('store');
+        Route::post('store/', [PagoController::class, 'store'])->name('store');
         // Mostrar un pago específico
-        Route::get('{pago}', [PagoController::class, 'show'])->name('show');
+        Route::get('show/{pago}', [PagoController::class, 'show'])->name('show');
         // Mostrar el formulario para editar un pago específico
         Route::get('{pago}/edit', [PagoController::class, 'edit'])->name('edit');
         // Actualizar un pago específico
-        Route::put('{pago}', [PagoController::class, 'update'])->name('update');
+        Route::put('update/{pago}', [PagoController::class, 'update'])->name('update');
         // Eliminar un pago específico
-        Route::delete('{pago}', [PagoController::class, 'destroy'])->name('destroy');
+        Route::delete('delete/{pago}', [PagoController::class, 'destroy'])->name('destroy');
+
+
+        Route::get('pagos-en-linea', [PagoController::class, 'pagosEnLinea'])->name('pagosEnLinea');
+        Route::get('acept-pagos-en-linea/{pago}', [PagoController::class, 'aceptpagoenlinea'])->name('aceptpagoenlinea');
     });
+});
+
+
+Route::prefix('pagos-en-linea')->name('linea.')->group(function () {
+
+
+    Route::get('/index', [PagoController::class, 'pagoenlinea'])->name('pagoenlinea');
+    Route::post('store', [PagoController::class, 'storePagoFlotante'])->name('storePagoFlotante');
 });

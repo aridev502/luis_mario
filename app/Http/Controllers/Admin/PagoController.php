@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Dueno;
 use App\Models\Pago;
+use App\Models\PagoFlotante;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class PagoController extends Controller
 {
@@ -79,5 +81,59 @@ class PagoController extends Controller
     function pagoenlinea()
     {
         return view('web.pagoenlinea');
+    }
+
+    function storePagoFlotante(Request $request)
+    {
+        $request->validate([
+            'telefono' => 'required|string|numeric',
+            'pago' => 'required|numeric',
+            'tipo' => ['required', Rule::in(['EFECTIVO', 'DEPOSITO', 'TRANSFERENCIA'])],
+            'boleta' => 'nullable|string|max:255',
+        ]);
+        $dueno = Dueno::where('aux3', $request->telefono)->first();
+
+        if (!$dueno) {
+            return redirect()->route('linea.pagoenlinea')->withInput([
+                'telefono' => $request->telefono,
+                'pago' => $request->pago,
+                'tipo' => $request->tipo,
+                'boleta' => $request->boleta,
+            ])->with(['info' => 'No exite datos con este telefono']);
+        }
+
+
+        $pago = PagoFlotante::create([
+            'dueno_id' => $dueno->id,
+            'pago' => $request->pago,
+            'tipo' => $request->tipo,
+            'boleta' => $request->boleta,
+        ]);
+        return back()->with(['info' => "Pago Realizado, espere a ser aprobado"]);
+    }
+
+    function pagosEnLinea()
+    {
+        $pagos = PagoFlotante::all();
+        return view('admin.pagos.enlinea', compact('pagos'));
+    }
+
+    function aceptpagoenlinea(PagoFlotante $pago)
+    {
+
+        $p = new Pago();
+        $p->dueno_id = $pago->dueno_id;
+        $p->pago = $pago->pago;
+        $p->tipo = $pago->tipo;
+        $p->boleta = $pago->boleta;
+        $p->save();
+
+        $dueno = Dueno::find($pago->dueno_id);
+        $dueno->asignado -= $pago->pago;
+        $dueno->save();
+
+        $pago->delete();
+
+        return back()->with(['status-info' => "Se acepto el pago"]);
     }
 }
