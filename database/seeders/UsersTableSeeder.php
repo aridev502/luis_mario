@@ -23,11 +23,11 @@ class UsersTableSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'User Jonatan Lopez',
-            'email' => 'ariel20jona@gmail.com',
-            'password' => bcrypt('ariel123'),
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => bcrypt('admin123'),
             'role_id' => '2',
-            'codigo' => 'ariel20jona'
+            'codigo' => 'adm123'
         ]);
     }
 }
