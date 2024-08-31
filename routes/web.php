@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ConsumoController;
 use App\Http\Controllers\Admin\DuenoController;
 use App\Http\Controllers\Admin\PagoController;
+use App\Http\Controllers\Admin\ReporteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -84,6 +85,17 @@ Route::group(['prefix' => "admin", 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
         Route::get('pagos-en-linea', [PagoController::class, 'pagosEnLinea'])->name('pagosEnLinea');
         Route::get('acept-pagos-en-linea/{pago}', [PagoController::class, 'aceptpagoenlinea'])->name('aceptpagoenlinea');
+    });
+
+
+    Route::prefix('reportes')->name('reportes.')->group(function () {
+        Route::get('/index', [ReporteController::class, 'index'])->name('index');
+        Route::get('/dueno', [ReporteController::class, 'dueno'])->name('dueno');
+
+        Route::get('/consumos', [ReporteController::class, 'consumos'])->name('consumos');
+        Route::get('/pagos', [ReporteController::class, 'pagos'])->name('pagos');
+        Route::get('/cobros', [ReporteController::class, 'cobros'])->name('cobros');
+        Route::get('/deudores', [ReporteController::class, 'deudores'])->name('deudores');
     });
 });
 
