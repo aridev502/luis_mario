@@ -59,7 +59,7 @@
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
 
-                            <img src="{{ asset('logos/logo-dark.png') }}" class="dark-logo" width="158px" alt="{{config('app.name')}}">
+                            <img src="{{ asset('logos/main.png') }}" class="dark-logo" width="158px" alt="{{config('app.name')}}">
 
 
                         </b>
