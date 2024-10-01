@@ -96,6 +96,9 @@ Route::group(['prefix' => "admin", 'as' => 'admin.', 'namespace' => 'App\Http\Co
         Route::get('/pagos', [ReporteController::class, 'pagos'])->name('pagos');
         Route::get('/cobros', [ReporteController::class, 'cobros'])->name('cobros');
         Route::get('/deudores', [ReporteController::class, 'deudores'])->name('deudores');
+        Route::get('/consumos', [ReporteController::class, 'consumos'])->name('consumos');
+        Route::get('/precios', [ReporteController::class, 'precios'])->name('precios');
+        Route::get('/pagos', [ReporteController::class, 'pagos'])->name('pagos');
     });
 });
 

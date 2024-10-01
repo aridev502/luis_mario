@@ -31,17 +31,18 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin')) is_active @endif" href="{{ route('admin.pagos.index') }}" aria-expanded="false">
+                                <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
+                                <span class="hide-menu">Pagos</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin')) is_active @endif" href="{{ route('admin.pagos.pagosEnLinea') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Pagos en Linea</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin')) is_active @endif" href="{{ route('admin.reportes.index') }}" aria-expanded="false">
-                                <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
-                                <span class="hide-menu">Reportes</span>
-                            </a>
-                        </li>
+
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin')) is_active @endif" href="{{ route('admin.consumos.index') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
@@ -52,6 +53,14 @@
                             <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin')) is_active @endif" href="{{ route('admin.duenos.deudores') }}" aria-expanded="false">
                                 <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
                                 <span class="hide-menu">Deudores</span>
+                            </a>
+                        </li>
+
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark  @if(request()->is('admin')) is_active @endif" href="{{ route('admin.reportes.index') }}" aria-expanded="false">
+                                <i class="mr-3 fas fa-tachometer-alt fa-fw" aria-hidden="true"></i>
+                                <span class="hide-menu">Reportes</span>
                             </a>
                         </li>
 

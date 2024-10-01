@@ -25,7 +25,7 @@
 
         .content {
             width: 100%;
-            height: 140px;
+            /* height: 140px; */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -67,9 +67,12 @@
 <body>
     <div class="container">
         <div class="content">
+
+            <img src="{{asset('logos/main.png')}}" style="width: 20%;" alt="">
+
             <h1>Ticket de Pago</h1>
             <p>Dueño: {{ $pago->dueno->nombre }}</p>
-            <p>Pago: {{ $pago->pago }}</p>
+            <p>Pago: Q. {{ number_format($pago->pago, 2) }}</p>
             <p>Tipo: {{ $pago->tipo }}</p>
             <p>Deduda: Q. {{ number_format($pago->dueno->asignado, 2) }}</p>
         </div>
