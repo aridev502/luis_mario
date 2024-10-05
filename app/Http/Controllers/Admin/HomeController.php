@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\AsigancionDeMetros;
+use App\Models\Dueno;
+use App\Models\PagoFlotante;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+
+        $duenos = Dueno::count();
+        $users = User::count();
+        $pagoenlinea = PagoFlotante::count();
+        $deudores = Dueno::where('asignado', '>', 0)->get();
+
+        $metros = AsigancionDeMetros::all();
+
+
+
+        return view('admin.home', compact('duenos', 'users', 'pagoenlinea', 'deudores', 'metros'));
     }
 }

@@ -43,7 +43,7 @@
 
 
 
-                        <div class="form-group d-none">
+                        <div class="form-group">
                             <label for="aux3">Telefono: </label>
                             <input type="text" name="aux3" id="aux3" class="form-control">
                         </div>

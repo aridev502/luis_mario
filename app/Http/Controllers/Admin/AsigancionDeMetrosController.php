@@ -19,7 +19,7 @@ class AsigancionDeMetrosController extends Controller
     public function show($id)
     {
         $asignacion = AsigancionDeMetros::findOrFail($id);
-        return response()->json($asignacion);
+        return view('admin.asigancion_metros.show', compact('asignacion'));
     }
 
     function create()
@@ -63,7 +63,7 @@ class AsigancionDeMetrosController extends Controller
             'precio' => $request->precio,
         ]);
 
-        return response()->json($asignacion);
+        return back()->with(['status-success' => "Asignación Actualizada"]);
     }
 
     function edit($id)
