@@ -177,7 +177,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="text-center">
-                © 2020 Monster Admin by <a href="https://www.wrappixel.com/">wrappixel.com</a>
+                © <?php echo  date('Y'); ?> {{ config('app.name') }}
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
