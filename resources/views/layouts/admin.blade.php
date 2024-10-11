@@ -16,6 +16,8 @@
     <!-- slim select -->
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/slim-select/slimselect.min.css') }}">
 
+    <script src="https://kit.fontawesome.com/350a2e8a4a.js" crossorigin="anonymous"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -53,7 +55,7 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand justify-content-center" href="index.html">
+                    <a class="navbar-brand justify-content-center" href="{{route('admin.home')}}">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->

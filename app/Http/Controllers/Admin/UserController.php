@@ -65,7 +65,6 @@ class UserController extends Controller
 
         $user = User::create($request->all());
 
-        dd($user);
         return redirect()->route('admin.users.index')->with(['status-success' => "New User Created"]);
     }
 
