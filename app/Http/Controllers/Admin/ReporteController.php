@@ -59,8 +59,10 @@ class ReporteController extends Controller
 
     function pagosDueno(Request $request)
     {
-        $pagos = Pago::where('dueno_id', $request->id)
+        $pagos = Pago::where('dueno_id', $request->dueno)
             ->get();
+
+        // dd($pagos);
         return view('admin.reportes.pagosdueno', compact('pagos'));
     }
 }

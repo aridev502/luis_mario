@@ -36,28 +36,28 @@
                         <label for="tipo" class="form-label">Tipo</label>
                         <select name="tipo" id="tipo" class="form-control">
                             <option value="EFECTIVO" {{ old('tipo') == 'efectivo' ? 'selected' : '' }}>Efectivo</option>
-                            <option value="DEPOSITO" {{ old('tipo') == 'deposito' ? 'selected' : '' }}>Depósito</option>
-                            <option value="TRANSFERENCIA" {{ old('tipo') == 'transferencia' ? 'selected' : '' }}>Transferencia</option>
+                            <!-- <option value="DEPOSITO" {{ old('tipo') == 'deposito' ? 'selected' : '' }}>Depósito</option>
+                            <option value="TRANSFERENCIA" {{ old('tipo') == 'transferencia' ? 'selected' : '' }}>Transferencia</option> -->
                         </select>
                         @error('tipo')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="mb-3">
+                    <!-- <div class="mb-3">
                         <label for="boleta" class="form-label">Boleta</label>
                         <input type="text" class="form-control" id="boleta" name="boleta" value="{{ old('boleta') }}">
                         @error('boleta')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
-                    </div>
-                    <div class="mb-3">
+                    </div> -->
+                    <!-- <div class="mb-3">
                         <label for="aux1" class="form-label">Aux1</label>
                         <input type="text" class="form-control" id="aux1" name="aux1" value="{{ old('aux1') }}">
                     </div>
                     <div class="mb-3">
                         <label for="aux2" class="form-label">Aux2</label>
                         <input type="text" class="form-control" id="aux2" name="aux2" value="{{ old('aux2') }}">
-                    </div>
+                    </div> -->
                     <button type="submit" class="btn btn-primary" onclick="return confirm('¿Estás seguro de crear el pago?')">Guardar</button>
                 </form>
 

@@ -120,7 +120,7 @@
             <div class="card-body">
                 <h4 class="card-title">Pagos por Dueños</h4>
                 <!-- <p class="card-text">Retorna el reporte de todos los pagos registrados</p> -->
-                <form action="{{ route('admin.reportes.pagos') }}" method="get">
+                <form action="{{ route('admin.reportes.pagosDueno') }}" method="get">
                     <div class="form-row">
 
                         <div class="col">

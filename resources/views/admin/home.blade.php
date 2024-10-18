@@ -101,9 +101,7 @@
         </div>
     </div>
 
-    <div class="col-12 text-center">
-        <img src="{{asset('logos/no.jpg')}}" width="400" alt="">
-    </div>
+
 
 
 </div>

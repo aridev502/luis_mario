@@ -24,6 +24,10 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
+
+  <?php
+  $bg = asset('logos/no.jpg');
+  ?>
   <style>
     .btn {
       margin: 2.5px;
@@ -61,6 +65,16 @@
       background: -o-linear-gradient(left, #d9c287 0%, #d9c287 100%);
       background: linear-gradient(to right, #d9c287 0%, #d9c287 100%);
       height: 70px;
+    }
+
+    .page-wrapper {
+      background: url('{{$bg}}') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      background-color: rgba(217, 194, 135, 0.3);
+      position: relative;
     }
   </style>
   @yield('styles')
