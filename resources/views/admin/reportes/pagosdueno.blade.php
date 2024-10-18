@@ -13,6 +13,7 @@
             <th>TIPO</th>
             <th>BOLETA</th>
             <th>PAGO</th>
+            <th>FECHA DE PAGO</th>
 
         </tr>
     </thead>
@@ -24,6 +25,7 @@
             <td>{{ $asignacion->tipo }}</td>
             <td>{{ $asignacion->boleta }}</td>
             <td>Q. {{ number_format($asignacion->pago, 2) }}</td>
+            <td>{{ $asignacion->created_at->isoFormat('D [de] MMMM [de] YYYY') }}</td>
 
         </tr>
         @endforeach

@@ -12,7 +12,15 @@
                 <form action="{{ route('admin.pagos.store') }}" method="POST">
                     @csrf
 
-
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <select name="dueno_id" id="dueno_id">
                         <option value="">SELECCIONE UN DUEÑO</option>
                         @foreach ($duenos as $dueno)
@@ -43,21 +51,21 @@
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    <!-- <div class="mb-3">
+                    <div class="mb-3 d-none">
                         <label for="boleta" class="form-label">Boleta</label>
-                        <input type="text" class="form-control" id="boleta" name="boleta" value="{{ old('boleta') }}">
+                        <input type="text" class="form-control" id="boleta" name="boleta" value="123">
                         @error('boleta')
                         <div class="text-danger">{{ $message }}</div>
                         @enderror
-                    </div> -->
-                    <!-- <div class="mb-3">
+                    </div>
+                    <div class="mb-3 d-none">
                         <label for="aux1" class="form-label">Aux1</label>
                         <input type="text" class="form-control" id="aux1" name="aux1" value="{{ old('aux1') }}">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 d-none">
                         <label for="aux2" class="form-label">Aux2</label>
                         <input type="text" class="form-control" id="aux2" name="aux2" value="{{ old('aux2') }}">
-                    </div> -->
+                    </div>
                     <button type="submit" class="btn btn-primary" onclick="return confirm('¿Estás seguro de crear el pago?')">Guardar</button>
                 </form>
 

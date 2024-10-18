@@ -76,6 +76,20 @@
       background-color: rgba(217, 194, 135, 0.3);
       position: relative;
     }
+
+    .sidebar-nav ul .sidebar-item .sidebar-link .hide-menu {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      font-weight: 500;
+    }
+
+    #main-wrapper[data-layout=horizontal] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link:hover,
+    #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link:hover {
+
+      color: #ffff;
+    }
   </style>
   @yield('styles')
 </head>
