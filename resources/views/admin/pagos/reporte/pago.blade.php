@@ -74,7 +74,7 @@
             <p>Dueño: {{ $pago->dueno->nombre }}</p>
             <p>Pago: Q. {{ number_format($pago->pago, 2) }}</p>
             <p>Tipo: {{ $pago->tipo }}</p>
-            <p>Deduda: Q. {{ number_format($pago->dueno->asignado, 2) }}</p>
+            <p>Deuda: Q. {{ number_format($pago->dueno->asignado, 2) }}</p>
         </div>
         <div class="footer">
             <p>Fecha: {{ date('d/m/Y') }}</p>

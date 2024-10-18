@@ -55,4 +55,12 @@ class ReporteController extends Controller
             ->get();
         return view('admin.reportes.pagos', compact('pagos'));
     }
+
+
+    function pagosDueno(Request $request)
+    {
+        $pagos = Pago::where('dueno_id', $request->id)
+            ->get();
+        return view('admin.reportes.pagosdueno', compact('pagos'));
+    }
 }

@@ -8,7 +8,7 @@
 
     <style>
         :root {
-            --main-bg: #e91e63;
+            --main-bg: #d9c287;
         }
 
         .main-bg {
@@ -39,11 +39,14 @@
     <div class="container">
         <div class="row justify-content-center mt-5">
             <div class="col-lg-4 col-md-6 col-sm-6">
-                <div class="card shadow">
+                <div class="card shadow" style="">
                     <div class="card-title text-center border-bottom">
                         <h2 class="p-3">Login</h2>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body text-center">
+
+                        <img src="{{asset('logos/main.png')}}" alt="">
+
                         @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>

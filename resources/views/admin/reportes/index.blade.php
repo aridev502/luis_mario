@@ -115,6 +115,36 @@
         </div>
     </div>
 
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Pagos por Dueños</h4>
+                <!-- <p class="card-text">Retorna el reporte de todos los pagos registrados</p> -->
+                <form action="{{ route('admin.reportes.pagos') }}" method="get">
+                    <div class="form-row">
+
+                        <div class="col">
+                            <label for="dueno">Dueño:</label>
+                            <select name="dueno" id="dueno" class="form-control">
+                                <option value="">--</option>
+                                @foreach ($dunos as $d)
+                                <option value="{{ $d->id }}" {{ request()->query('dueno') == $d->id ? 'selected' : '' }}>
+                                    {{ $d->nombre }}
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary mt-4">Ver</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 @endsection

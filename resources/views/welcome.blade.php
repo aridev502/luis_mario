@@ -26,7 +26,7 @@
                             @else
                             <a class="btn btn-success" href="{{ route('login') }}" class="text-sm text-gray-700 underline">INICIAR SESION</a>
                             @endauth
-                            <a class="btn btn-info" href="{{ route('linea.pagoenlinea') }}" class="ml-4 text-sm text-gray-700 underline">PAGOS EN LINEA</a>
+
                         </div>
                         @endif
                     </div>

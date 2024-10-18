@@ -38,7 +38,7 @@
     <div class="col-6">
         <div class="card">
             <img class="card-img-top" src="holder.js/100x180/" alt="">
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <h4 class="card-title">DEUDORES</h4>
                 <table class="table">
                     <thead>
@@ -87,7 +87,7 @@
     <div class="col-md-4">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Usurios Registrados</h4>
+                <h4 class="card-title">Usuarios Registrados</h4>
                 <p class="card-text">{{$users}}</p>
             </div>
         </div>
@@ -95,14 +95,14 @@
     <div class="col-md-4">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Duenos / Casas, Registrados</h4>
+                <h4 class="card-title">Dueños / Casas, Registrados</h4>
                 <p class="card-text">{{$duenos}}</p>
             </div>
         </div>
     </div>
 
     <div class="col-12 text-center">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWj2nt-4tHXV1jYD5j3EVttXFBLOSK3UFORA&s" alt="">
+        <img src="{{asset('logos/no.jpg')}}" width="400" alt="">
     </div>
 
 

@@ -36,12 +36,12 @@
                                 <span class="hide-menu">Pagos</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <!-- <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark" href="{{ route('admin.pagos.pagosEnLinea') }}" aria-expanded="false">
                                 <i class="fa-brands fa-edge-legacy"></i>
                                 <span class="hide-menu">Pagos en Linea</span>
                             </a>
-                        </li>
+                        </li> -->
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark" href="{{ route('admin.consumos.index') }}" aria-expanded="false">
