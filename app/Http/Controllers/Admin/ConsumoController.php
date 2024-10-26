@@ -67,7 +67,7 @@ class ConsumoController extends Controller
 
 
         $dueno = Dueno::find($request->dueno_id);
-        $dueno->asignado += $asign->precio;
+        $dueno->asignado += $asign->precio ?? 0;
         $dueno->save();
 
 
