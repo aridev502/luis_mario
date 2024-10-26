@@ -79,14 +79,6 @@
     <div class="col-md-4">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Pagos en linea Pendientes </h4>
-                <p class="card-text">Falta aprovar: {{$pagoenlinea}}</p>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
                 <h4 class="card-title">Usuarios Registrados</h4>
                 <p class="card-text">{{$users}}</p>
             </div>

@@ -77,7 +77,7 @@
                             </div>
 
                             <div class="d-grid">
-                                <button type="submit" class="btn text-light main-bg">Login</button>
+                                <button type="submit" class="btn  btn-success">Login</button>
                             </div>
                         </form>
                     </div>
